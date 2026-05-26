@@ -38,9 +38,9 @@
 
 /* ── Gallery rotation ────────────────────────────────────────── */
 const GALLERY_POOL = [
+  { src: 'images/chris-stenger-fRtdVQWa0Dk-unsplash.jpg',     alt: 'Red rorbu on a snowy Senja beach with turquoise fjord water' },
   { src: 'images/samuele-bertoli-p_Hf6WlgKEE-unsplash.jpg',   alt: 'Segla mountain rising above the Senja fjord' },
   { src: 'images/nick-fewings-D02-UWKtv_c-unsplash.jpg',      alt: 'Small orange boat on glassy Arctic water' },
-  { src: 'images/chris-stenger-fRtdVQWa0Dk-unsplash.jpg',     alt: 'Red rorbu on a snowy beach with turquoise water' },
   { src: 'images/knut-troim-tEjBzUns8SQ-unsplash.jpg',        alt: 'Boat silhouetted against a pink Arctic sky' },
   { src: 'images/knut-troim-gwbjoBpUIy8-unsplash.jpg',        alt: 'Fishing boat surrounded by seabirds at orange sunset' },
   { src: 'images/felix-bacher-Tv_gr3_oB0E-unsplash.jpg',      alt: 'Golden harbour at sunset with warm light on the water' },

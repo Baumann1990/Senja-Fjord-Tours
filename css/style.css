@@ -181,30 +181,64 @@ ul { list-style: none; }
 .nav__brand {
   display: flex;
   align-items: center;
+  gap: 10px;
+  text-decoration: none;
 }
 
 .nav__logo {
   display: block;
-  width: 160px;
-  height: 56px;
-  background: url('../images/logo_assets/09_small_white_512w_transparent.png') no-repeat left center;
-  background-size: 160px 56px;
+  width: 46px;
+  height: 46px;
+  background: url('../images/logo_assets/logo_emblem_transparent.svg') no-repeat center center;
+  background-size: contain;
   overflow: hidden;
+  flex-shrink: 0;
+  /* White on dark transparent nav */
+  filter: brightness(0) invert(1);
   transition: filter .3s;
 }
 
+.nav__logo-wordmark {
+  display: block;
+  font-family: 'Italiana', 'Playfair Display', serif;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  line-height: 1.15;
+  color: #fff;
+  transition: color .3s;
+  white-space: nowrap;
+}
+
+.nav__logo-wordmark span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  opacity: 0.7;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Scrolled: show emblem in brand colour, wordmark in navy */
 .nav.scrolled .nav__logo {
-  background-image: url('../images/logo_assets/08_small_black_512w_transparent.png');
+  filter: none;
+}
+
+.nav.scrolled .nav__logo-wordmark {
+  color: var(--navy-deep);
 }
 
 .footer__logo {
   display: block;
-  width: 220px;
-  height: 76px;
-  background: url('../images/logo_assets/09_small_white_512w_transparent.png') no-repeat left center;
-  background-size: 220px 76px;
+  width: 52px;
+  height: 52px;
+  background: url('../images/logo_assets/logo_emblem_transparent.svg') no-repeat center center;
+  background-size: contain;
   overflow: hidden;
   margin-bottom: 16px;
+  /* White on dark footer */
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
 }
 
 .nav__menu {

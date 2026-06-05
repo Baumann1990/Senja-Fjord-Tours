@@ -176,6 +176,7 @@
     <nav class="nav__menu" id="navMenu">
       <a href="#tours">Tours</a>
       <a href="#about">About</a>
+      <a href="/blog/">Journal</a>
       <a href="#faq">FAQ</a>
       <a href="https://www.instagram.com/senjafjordtours" target="_blank" rel="noopener" class="nav__social" aria-label="Senja Fjord Tours on Instagram">
         <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -293,7 +294,44 @@
 
       <div class="tours__grid" id="toursGrid">
 
-        <!-- Tour 1: Senja Fjord Explorer -->
+        <!-- Tour 1: Eagles & Lines -->
+        <article class="tour-card" data-surface="fishing" data-level="summer">
+          <div class="tour-card__img-wrap">
+            <a href="eagles-and-lines/" aria-label="Eagles &amp; Lines — full tour page">
+              <img
+                src="images/knut-troim-tEjBzUns8SQ-unsplash.jpg"
+                alt="Boat heading out at a vivid pink Arctic sunset on the inner Senja fjord"
+                class="tour-card__img"
+                loading="lazy"
+              />
+            </a>
+            <span class="tour-card__badge tour-card__badge--fishing">Fishing</span>
+          </div>
+          <div class="tour-card__body">
+            <div class="tour-card__meta">
+              <span class="difficulty difficulty--seasonal">May–Sep</span>
+              <span class="tour-card__duration">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                3–6 hrs
+              </span>
+            </div>
+            <h3 class="tour-card__title"><a href="eagles-and-lines/" class="tour-card__title-link">Eagles &amp; Lines</a></h3>
+            <p class="tour-card__desc">
+              A flexible summer outing on the inner fjord — cast for cod, saithe and halibut
+              with a fish finder to help, and keep one eye on the sky for sea eagles.
+              Three to six hours, entirely at your pace.
+            </p>
+            <div class="tour-card__footer">
+              <span class="tour-card__price">NOK X XXX <em>/ group</em><span class="tour-card__group-note">Larger group? <a href="#book">Get a quote</a></span></span>
+              <div class="tour-card__actions">
+                <button class="btn btn--outline btn--sm" data-modal="modal-eagles-lines">Details</button>
+                <a href="#book" class="btn btn--sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tour 2: Senja Fjord Explorer -->
         <article class="tour-card" data-surface="cruise" data-level="summer">
           <div class="tour-card__img-wrap">
             <a href="senja-fjord-explorer/" aria-label="Senja Fjord Explorer — full tour page">
@@ -330,7 +368,7 @@
           </div>
         </article>
 
-        <!-- Tour 2: The Fisherman's Haul -->
+        <!-- Tour 3: The Fisherman's Haul -->
         <article class="tour-card" data-surface="fishing" data-level="summer">
           <div class="tour-card__img-wrap">
             <a href="the-fishermans-haul/" aria-label="The Fisherman's Haul — full tour page">
@@ -367,7 +405,7 @@
           </div>
         </article>
 
-        <!-- Tour 3: Midnight Sun Cruise -->
+        <!-- Tour 4: Midnight Sun Cruise -->
         <article class="tour-card" data-surface="cruise" data-level="summer">
           <div class="tour-card__img-wrap">
             <a href="midnight-sun-cruise/" aria-label="Midnight Sun Cruise — full tour page">
@@ -404,8 +442,8 @@
           </div>
         </article>
 
-        <!-- Tour 4: Northern Lights Cruise -->
-        <article class="tour-card" data-surface="cruise" data-level="winter">
+        <!-- Tour 5: Northern Lights Cruise -->
+        <article class="tour-card tour-card--wide" data-surface="cruise" data-level="winter">
           <div class="tour-card__img-wrap">
             <a href="northern-lights-cruise/" aria-label="Northern Lights Cruise — full tour page">
               <img
@@ -448,6 +486,55 @@
   <!-- ─── Gallery strip ──────────────────────────────────────── -->
   <section class="gallery">
     <div class="gallery__track" id="galleryTrack"></div>
+  </section>
+
+  <!-- ─── Journal teaser ─────────────────────────────────────── -->
+  <section class="journal-teaser section">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Journal</span>
+        <h2 class="section-title">Notes from the water</h2>
+        <p class="section-sub">Honest writing about northern Norway and why the less obvious places are usually the best ones.</p>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <a href="/blog/senja-not-lofoten/" class="blog-card__img-wrap">
+            <img src="images/samuele-bertoli-p_Hf6WlgKEE-unsplash.jpg" alt="Segla mountain rising from the Senja fjord" class="blog-card__img" loading="lazy" />
+          </a>
+          <div class="blog-card__body">
+            <span class="blog-card__meta">5 min read</span>
+            <h3 class="blog-card__title"><a href="/blog/senja-not-lofoten/">Senja, Not Lofoten</a></h3>
+            <p class="blog-card__excerpt">Lofoten is spectacular. It is also heaving. The island you want is two hours further east, and almost nobody knows about it yet.</p>
+            <a href="/blog/senja-not-lofoten/" class="blog-card__link">Read more</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <a href="/blog/midnight-sun-on-the-water/" class="blog-card__img-wrap">
+            <img src="images/felix-bacher-Tv_gr3_oB0E-unsplash.jpg" alt="Golden midnight sun over the harbour and fjord" class="blog-card__img" loading="lazy" />
+          </a>
+          <div class="blog-card__body">
+            <span class="blog-card__meta">4 min read</span>
+            <h3 class="blog-card__title"><a href="/blog/midnight-sun-on-the-water/">The Midnight Sun Nobody's Photographing</a></h3>
+            <p class="blog-card__excerpt">The famous version is a hotel rooftop and a hundred people with tripods. The real version is an empty fjord at 11pm.</p>
+            <a href="/blog/midnight-sun-on-the-water/" class="blog-card__link">Read more</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <a href="/blog/fishing-for-real/" class="blog-card__img-wrap">
+            <img src="images/knut-troim-gwbjoBpUIy8-unsplash.jpg" alt="Fishing boat at vivid orange Arctic sunset" class="blog-card__img" loading="lazy" />
+          </a>
+          <div class="blog-card__body">
+            <span class="blog-card__meta">5 min read</span>
+            <h3 class="blog-card__title"><a href="/blog/fishing-for-real/">Fishing for Real, Not for a Photo</a></h3>
+            <p class="blog-card__excerpt">There is a version of Arctic fishing that is a prop. And there is the version where you are actually on the water with no guarantee of anything.</p>
+            <a href="/blog/fishing-for-real/" class="blog-card__link">Read more</a>
+          </div>
+        </article>
+      </div>
+      <div class="journal-teaser__footer">
+        <a href="/blog/" class="btn btn--outline" style="border-color: rgba(255,255,255,.3); color: var(--white);">All posts in the journal</a>
+      </div>
+    </div>
   </section>
 
   <!-- ─── Booking ────────────────────────────────────────────── -->
@@ -495,6 +582,7 @@
                   <option>The Fisherman's Haul — NOK X XXX</option>
                   <option>Midnight Sun Cruise — NOK X XXX</option>
                   <option>Northern Lights Cruise — NOK X XXX</option>
+                  <option>Eagles &amp; Lines — NOK X XXX</option>
                 </select>
                 <span class="field-error" id="error-tour"></span>
               </div>
@@ -750,6 +838,63 @@
     </div>
   </div>
 
+  <!-- Modal: Eagles & Lines -->
+  <div class="modal" id="modal-eagles-lines" role="dialog" aria-modal="true" aria-labelledby="modal-eagles-lines-title" hidden>
+    <div class="modal__backdrop"></div>
+    <div class="modal__panel">
+      <button class="modal__close" aria-label="Close">&times;</button>
+      <div class="modal__hero modal__hero--slideshow">
+        <img src="images/knut-troim-tEjBzUns8SQ-unsplash.jpg" alt="Boat at pink Arctic sunset on the inner fjord" />
+        <img src="images/nick-fewings-D02-UWKtv_c-unsplash.jpg" alt="Small boat on glassy calm Arctic water" />
+        <img src="images/felix-bacher-Tv_gr3_oB0E-unsplash.jpg" alt="Golden summer light over the harbour and fjord" />
+        <div class="modal__hero-badges">
+          <span class="tour-card__badge tour-card__badge--fishing">Fishing</span>
+          <span class="difficulty difficulty--seasonal">May–Sep</span>
+        </div>
+      </div>
+      <div class="modal__body">
+        <div class="modal__stats">
+          <div class="modal__stat"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 3–6 hours</div>
+          <div class="modal__stat"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> May to September</div>
+          <div class="modal__stat"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> Departs Finnsnes harbour</div>
+          <div class="modal__stat"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.74"/></svg> Up to 5 guests</div>
+        </div>
+        <h2 id="modal-eagles-lines-title">Eagles &amp; Lines</h2>
+        <p>The fjord between Finnsnes and Senja is one of the calmest and most productive stretches of water in the area. The inner side stays sheltered when the outer coast is rough, which means more days when the conditions are right and the fishing is good. We run a 20-foot boat with a fish finder on board — you can see the fish before you drop the line.</p>
+        <p>The duration is flexible. Three hours is enough for a solid session. Six hours gives you time to move around, explore more of the fjord, and try different spots. You set the pace. Your guide knows the water and will find where the cod, saithe and haddock are running — and halibut are present in these fjords too, so keep your line deep.</p>
+        <p>Sea eagles are common in this part of Senja. We keep an eye out as we go, and your guide will slow down when one appears. There are a lot of them. It is not unusual to see three or four on a single outing.</p>
+        <p>At the end of the trip, there is an option to go ashore at the guide's house on Senja, where he will help you fillet the catch to take home. This is available at extra cost and worth arranging in advance.</p>
+        <h3>Highlights</h3>
+        <ul class="modal__list">
+          <li>Fish finder on board — locate the fish before you cast</li>
+          <li>Cod, saithe, haddock and halibut in these waters</li>
+          <li>Sea eagles — common in the area, often seen at close range</li>
+          <li>Flexible duration: three to six hours, your choice</li>
+          <li>Calm inner fjord — more fishable days than the outer coast</li>
+          <li>Optional: go ashore for filleting at the guide's house on Senja (extra charge)</li>
+          <li>Rods available to hire on board</li>
+        </ul>
+        <h3>Good to know</h3>
+        <ul class="modal__list">
+          <li>Season: May to September — boat is ashore from October to early May</li>
+          <li>Up to 5 guests, 20-foot boat</li>
+          <li>No fishing experience required</li>
+          <li>Warm layers recommended — it is cooler on the water even in summer</li>
+          <li>Catches are real but not guaranteed</li>
+        </ul>
+        <div class="modal__gallery">
+          <img src="images/knut-troim-tEjBzUns8SQ-unsplash.jpg" alt="Boat at pink sunset on the fjord" loading="lazy" />
+          <img src="images/nick-fewings-D02-UWKtv_c-unsplash.jpg" alt="Calm fjord water from a small boat" loading="lazy" />
+          <img src="images/felix-bacher-Tv_gr3_oB0E-unsplash.jpg" alt="Golden summer evening on the harbour" loading="lazy" />
+        </div>
+        <div class="modal__footer">
+          <span class="modal__price">NOK X XXX <em>/ group</em></span>
+          <a href="#book" class="btn btn--primary modal__book">Book this tour</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ─── FAQ ──────────────────────────────────────────────────── -->
   <section class="faq section" id="faq">
     <div class="container">
@@ -830,6 +975,7 @@
           <li><a href="#tours" data-filter="fishing">Fishing</a></li>
           <li><a href="#tours" data-filter="summer">Midnight Sun</a></li>
           <li><a href="#tours" data-filter="winter">Northern Lights</a></li>
+          <li><a href="eagles-and-lines/">Eagles &amp; Lines</a></li>
         </ul>
       </div>
       <div class="footer__links">
@@ -837,6 +983,7 @@
         <ul>
           <li><a href="#about">About Us</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="/blog/">Journal</a></li>
           <li><a href="#book">Book a Tour</a></li>
         </ul>
       </div>

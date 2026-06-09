@@ -1527,8 +1527,9 @@ textarea { resize: vertical; }
     min-height: 44px;
   }
 
-  /* Add bottom padding to tour page so bar doesn't cover content */
+  /* Add bottom padding so the sticky bar doesn't cover content */
   .tour-page { padding-bottom: 80px; }
+  .footer { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 }
 
 /* ── Responsive ──────────────────────────────────────────────── */

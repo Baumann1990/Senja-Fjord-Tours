@@ -47,6 +47,8 @@ const GALLERY_POOL = [
   { src: 'images/federico-bottos-uWmWoH9maR4-unsplash.jpg',   alt: 'Aurora borealis illuminating the Okshornan peaks' },
   { src: 'images/lightscape-LtnPejWDSAY-unsplash.jpg',        alt: 'Purple and green northern lights over snowy landscape' },
   { src: 'images/jaanus-jagomagi-Bg1hgJEU3Es-unsplash.jpg',   alt: 'Aurora and shooting star over Senja' },
+  { src: 'images/boat-at-jetty-finnsnes-1.jpg',              alt: 'Senja Fjord Tours boat moored at Finnsnes jetty with snow-capped mountains behind' },
+  { src: 'images/boat-at-jetty-finnsnes-2.jpg',              alt: 'Tour boat tied at the Finnsnes harbour jetty on a calm Arctic summer morning' },
 ];
 
 const GALLERY_COUNT = 8;

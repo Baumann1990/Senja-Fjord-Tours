@@ -185,6 +185,39 @@ document.addEventListener('keydown', e => {
   document.querySelectorAll('.modal:not([hidden])').forEach(closeModal);
 });
 
+/* ── Form: button groups ─────────────────────────────────────── */
+document.querySelectorAll('[data-btn-group]').forEach(group => {
+  const hidden  = document.getElementById(group.dataset.btnGroup);
+  const buttons = group.querySelectorAll('[data-value]');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      if (hidden) { hidden.value = btn.dataset.value; hidden.dispatchEvent(new Event('input')); }
+    });
+  });
+  const pre = group.querySelector('.is-active');
+  if (pre && hidden && !hidden.value) hidden.value = pre.dataset.value;
+});
+
+/* ── Form: steppers ──────────────────────────────────────────── */
+document.querySelectorAll('[data-stepper]').forEach(stepper => {
+  const hidden  = document.getElementById(stepper.dataset.stepper);
+  const display = stepper.querySelector('[data-stepper-val]');
+  const min     = parseInt(stepper.dataset.min ?? '1');
+  const max     = parseInt(stepper.dataset.max ?? '10');
+  let   val     = parseInt(stepper.dataset.initial ?? min);
+
+  function sync() {
+    if (display) display.textContent = val;
+    if (hidden)  { hidden.value = String(val); hidden.dispatchEvent(new Event('input')); }
+  }
+
+  stepper.querySelector('[data-stepper-down]').addEventListener('click', () => { if (val > min) { val--; sync(); } });
+  stepper.querySelector('[data-stepper-up]'  ).addEventListener('click', () => { if (val < max) { val++; sync(); } });
+  sync();
+});
+
 /* ── Booking form ────────────────────────────────────────────── */
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
@@ -200,20 +233,26 @@ if (form) {
   const setFieldError = (id, message) => {
     const field = document.getElementById(id);
     const span  = document.getElementById('error-' + id);
-    if (field) field.classList.add('input--error');
-    if (span)  span.textContent = message;
+    if (field) {
+      const target = field.type === 'hidden' ? field.previousElementSibling : field;
+      if (target) target.classList.add('input--error');
+    }
+    if (span) span.textContent = message;
   };
 
   const clearFieldError = id => {
     const field = document.getElementById(id);
     const span  = document.getElementById('error-' + id);
-    if (field) field.classList.remove('input--error');
-    if (span)  span.textContent = '';
+    if (field) {
+      const target = field.type === 'hidden' ? field.previousElementSibling : field;
+      if (target) target.classList.remove('input--error');
+    }
+    if (span) span.textContent = '';
   };
 
   const validateForm = () => {
     let valid = true;
-    ['name', 'email', 'tour', 'date', 'guests'].forEach(id => clearFieldError(id));
+    ['name', 'email', 'tour', 'date'].forEach(id => clearFieldError(id));
 
     const name = form.querySelector('#name');
     if (!name.value.trim()) {
@@ -242,16 +281,10 @@ if (form) {
       valid = false;
     }
 
-    const guests = form.querySelector('#guests');
-    if (!guests.value) {
-      setFieldError('guests', 'Please enter the number of guests.');
-      valid = false;
-    }
-
     return valid;
   };
 
-  ['name', 'email', 'tour', 'date', 'guests'].forEach(id => {
+  ['name', 'email', 'tour', 'date'].forEach(id => {
     const field = document.getElementById(id);
     if (field) field.addEventListener('input', () => clearFieldError(id));
   });

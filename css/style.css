@@ -858,6 +858,88 @@ textarea { resize: vertical; }
 
 .book__form-wrap { position: relative; }
 
+/* ── Button-picker & stepper (booking form) ─────────────────── */
+.rf-bike-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.rf-bike-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+  text-align: left;
+  width: 100%;
+}
+
+.rf-bike-btn:hover { border-color: var(--amber); }
+
+.rf-bike-grid.input--error { outline: 2px solid #c0392b; outline-offset: 2px; border-radius: var(--radius); }
+
+.rf-bike-btn.is-active {
+  border-color: var(--amber);
+  background: rgba(224,159,62,.08);
+}
+
+.rf-bike-name {
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.rf-bike-price {
+  font-size: .82rem;
+  color: var(--text-muted);
+}
+
+.rf-stepper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--white);
+}
+
+.rf-stepper-btn {
+  width: 42px;
+  height: 42px;
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  transition: background .15s;
+  flex-shrink: 0;
+}
+
+.rf-stepper-btn:hover { background: var(--bg); }
+
+.rf-stepper-val {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  border-left: 1.5px solid var(--border);
+  border-right: 1.5px solid var(--border);
+  line-height: 42px;
+}
+
+@media (max-width: 700px) {
+  .rf-bike-grid { grid-template-columns: 1fr; }
+}
+/* /Button-picker & stepper */
+
 .form__confirm {
   display: flex;
   flex-direction: column;

@@ -497,37 +497,46 @@
                 <span class="field-error" id="error-email"></span>
               </div>
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="tour">Tour</label>
-                <select id="tour" name="tour" required>
-                  <option value="">Select a tour…</option>
-                  <option>Senja Fjord Explorer — NOK 1 000 / hour (50% off)</option>
-                  <option>Midnight Sun Cruise — NOK 2 000 / hour</option>
-                  <option>Eagles &amp; Lines — NOK 1 000 / hour (50% off)</option>
-                </select>
-                <span class="field-error" id="error-tour"></span>
+            <div class="form-group form-group--full">
+              <label>Tour</label>
+              <div class="rf-bike-grid" data-btn-group="tour">
+                <button type="button" class="rf-bike-btn" data-value="Senja Fjord Explorer — NOK 1 000 / hour (50% off)">
+                  <span class="rf-bike-name">Senja Fjord Explorer</span>
+                  <span class="rf-bike-price">2–6h · Private fjord cruise</span>
+                </button>
+                <button type="button" class="rf-bike-btn" data-value="Midnight Sun Cruise — NOK 2 000 / hour">
+                  <span class="rf-bike-name">Midnight Sun Cruise</span>
+                  <span class="rf-bike-price">3–4h · Late May–mid July</span>
+                </button>
+                <button type="button" class="rf-bike-btn" data-value="Eagles &amp; Lines — NOK 1 000 / hour (50% off)">
+                  <span class="rf-bike-name">Eagles &amp; Lines</span>
+                  <span class="rf-bike-price">3–6h · Fishing &amp; sea eagles</span>
+                </button>
               </div>
+              <input type="hidden" id="tour" name="tour" value="" />
+              <span class="field-error" id="error-tour"></span>
+            </div>
+            <div class="form-row">
               <div class="form-group">
                 <label for="date">Preferred Date</label>
                 <input type="date" id="date" name="date" required />
                 <span class="field-error" id="error-date"></span>
               </div>
-            </div>
-            <div class="form-row">
               <div class="form-group">
-                <label for="guests">Number of Guests</label>
-                <input type="number" id="guests" name="guests" min="1" placeholder="e.g. 3" required />
+                <label>Number of Guests</label>
+                <div class="rf-stepper" data-stepper="guests" data-min="1" data-max="8">
+                  <button type="button" class="rf-stepper-btn" data-stepper-down aria-label="Decrease">−</button>
+                  <span class="rf-stepper-val" data-stepper-val>1</span>
+                  <button type="button" class="rf-stepper-btn" data-stepper-up aria-label="Increase">+</button>
+                </div>
+                <input type="hidden" id="guests" name="guests" value="1" />
                 <span class="field-error" id="error-guests"></span>
               </div>
-              <div class="form-group">
-                <label for="accommodation">Where are you staying?</label>
-                <input type="text" id="accommodation" name="accommodation" placeholder="Hotel, Airbnb, town…" />
-              </div>
             </div>
+
             <div class="form-group form-group--full">
               <label for="message">Anything else?</label>
-              <textarea id="message" name="message" rows="3" placeholder="Special requests, questions, dietary needs…"></textarea>
+              <textarea id="message" name="message" rows="3" placeholder="Special requests, questions…"></textarea>
             </div>
             <button type="submit" class="btn btn--primary btn--full">Send Enquiry</button>
             <p class="form__note">We'll reply within 24 hours.</p>

@@ -159,36 +159,10 @@ ul { list-style: none; }
   color: var(--white);
 }
 
-/* ── Campaign bar — REMOVE AFTER 15 June 2026 ───────────────── */
-.campaign-bar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 101;
-  background: var(--amber);
-  color: var(--navy-deep);
-  text-align: center;
-  padding: 0 20px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-.campaign-bar a { color: inherit; text-decoration: underline; text-underline-offset: 2px; margin-left: 8px; }
-.campaign-bar .sep { opacity: 0.35; margin: 0 6px; }
-@media (max-width: 600px) {
-  .campaign-bar .campaign-bar__detail { display: none; }
-}
-.price--was { text-decoration: line-through; opacity: 0.45; margin-right: 4px; font-size: 0.875em; }
-/* /Campaign bar */
-
 /* ── Navigation ──────────────────────────────────────────────── */
 .nav {
   position: fixed;
-  top: 40px; left: 0; right: 0; /* CAMPAIGN: revert top to 0 after 15 June 2026 */
+  top: 0; left: 0; right: 0;
   z-index: 100;
   height: var(--nav-h);
   display: flex;

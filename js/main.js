@@ -38,17 +38,17 @@
 
 /* ── Gallery rotation ────────────────────────────────────────── */
 const GALLERY_POOL = [
-  { src: 'images/chris-stenger-fRtdVQWa0Dk-unsplash.jpg',     alt: 'Red rorbu on a snowy Senja beach with turquoise fjord water' },
-  { src: 'images/samuele-bertoli-p_Hf6WlgKEE-unsplash.jpg',   alt: 'Segla mountain rising above the Senja fjord' },
-  { src: 'images/nick-fewings-D02-UWKtv_c-unsplash.jpg',      alt: 'Small orange boat on glassy Arctic water' },
-  { src: 'images/knut-troim-tEjBzUns8SQ-unsplash.jpg',        alt: 'Boat silhouetted against a pink Arctic sky' },
-  { src: 'images/knut-troim-gwbjoBpUIy8-unsplash.jpg',        alt: 'Fishing boat surrounded by seabirds at orange sunset' },
-  { src: 'images/felix-bacher-Tv_gr3_oB0E-unsplash.jpg',      alt: 'Golden harbour at sunset with warm light on the water' },
-  { src: 'images/federico-bottos-uWmWoH9maR4-unsplash.jpg',   alt: 'Aurora borealis illuminating the Okshornan peaks' },
-  { src: 'images/lightscape-LtnPejWDSAY-unsplash.jpg',        alt: 'Purple and green northern lights over snowy landscape' },
-  { src: 'images/jaanus-jagomagi-Bg1hgJEU3Es-unsplash.jpg',   alt: 'Aurora and shooting star over Senja' },
-  { src: 'images/boat-at-jetty-finnsnes-1.jpg',              alt: 'Senja Fjord Tours boat moored at Finnsnes jetty with snow-capped mountains behind' },
-  { src: 'images/boat-at-jetty-finnsnes-2.jpg',              alt: 'Tour boat tied at the Finnsnes harbour jetty on a calm Arctic summer morning' },
+  { src: 'images/chris-stenger-fRtdVQWa0Dk-unsplash.webp',     alt: 'Red rorbu on a snowy Senja beach with turquoise fjord water' },
+  { src: 'images/samuele-bertoli-p_Hf6WlgKEE-unsplash.webp',   alt: 'Segla mountain rising above the Senja fjord' },
+  { src: 'images/nick-fewings-D02-UWKtv_c-unsplash.webp',      alt: 'Small orange boat on glassy Arctic water' },
+  { src: 'images/knut-troim-tEjBzUns8SQ-unsplash.webp',        alt: 'Boat silhouetted against a pink Arctic sky' },
+  { src: 'images/knut-troim-gwbjoBpUIy8-unsplash.webp',        alt: 'Fishing boat surrounded by seabirds at orange sunset' },
+  { src: 'images/felix-bacher-Tv_gr3_oB0E-unsplash.webp',      alt: 'Golden harbour at sunset with warm light on the water' },
+  { src: 'images/federico-bottos-uWmWoH9maR4-unsplash.webp',   alt: 'Aurora borealis illuminating the Okshornan peaks' },
+  { src: 'images/lightscape-LtnPejWDSAY-unsplash.webp',        alt: 'Purple and green northern lights over snowy landscape' },
+  { src: 'images/jaanus-jagomagi-Bg1hgJEU3Es-unsplash.webp',   alt: 'Aurora and shooting star over Senja' },
+  { src: 'images/boat-at-jetty-finnsnes-1.webp',              alt: 'Senja Fjord Tours boat moored at Finnsnes jetty with snow-capped mountains behind' },
+  { src: 'images/boat-at-jetty-finnsnes-2.webp',              alt: 'Tour boat tied at the Finnsnes harbour jetty on a calm Arctic summer morning' },
 ];
 
 const GALLERY_COUNT = 8;

@@ -200,6 +200,19 @@ document.querySelectorAll('[data-btn-group]').forEach(group => {
   if (pre && hidden && !hidden.value) hidden.value = pre.dataset.value;
 });
 
+/* ── Form: preselect tour from ?tour=key or data-book-tour links ── */
+const selectTour = key => {
+  const btn = document.querySelector(`[data-btn-group="tour"] [data-key="${key}"]`);
+  if (btn) btn.click();
+};
+
+const tourParam = new URLSearchParams(location.search).get('tour');
+if (tourParam) selectTour(tourParam);
+
+document.querySelectorAll('[data-book-tour]').forEach(link => {
+  link.addEventListener('click', () => selectTour(link.dataset.bookTour));
+});
+
 /* ── Form: steppers ──────────────────────────────────────────── */
 document.querySelectorAll('[data-stepper]').forEach(stepper => {
   const hidden  = document.getElementById(stepper.dataset.stepper);

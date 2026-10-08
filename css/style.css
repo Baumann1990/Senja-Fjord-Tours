@@ -617,6 +617,29 @@ svg.icon {
   color: var(--navy-deep);
 }
 
+.tour-card__badge--aurora {
+  background: rgba(42,157,143,.9);
+  color: var(--white);
+}
+
+/* In-season tour: spans the full grid width, image beside text */
+.tour-card--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.tour-card--featured .tour-card__img-wrap { height: 100%; min-height: 320px; }
+
+.tour-card--featured .tour-card__body {
+  padding: 32px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tour-card--featured .tour-card__title { font-size: 1.6rem; }
+
 .tour-card__body { padding: 20px 22px 22px; }
 
 .tour-card__meta {
@@ -639,6 +662,7 @@ svg.icon {
 .difficulty--easy   { background: #cff4fc; color: #0c4a6e; }
 .difficulty--medium { background: #fff3cd; color: #7d4e00; }
 .difficulty--seasonal { background: #fde8d8; color: #7d3a00; }
+.difficulty--winter   { background: #d4f1ec; color: #0f5249; }
 
 .tour-card__duration,
 .tour-card__dist {
@@ -855,6 +879,8 @@ textarea { resize: vertical; }
 }
 
 .rf-bike-btn:hover { border-color: var(--amber); }
+
+.rf-bike-btn--featured { grid-column: 1 / -1; }
 
 .rf-bike-grid.input--error { outline: 2px solid #c0392b; outline-offset: 2px; border-radius: var(--radius); }
 
@@ -1177,9 +1203,13 @@ textarea { resize: vertical; }
 
 .tour-hero__badges {
   display: flex;
+  align-items: center;
   gap: 10px;
   margin-bottom: 14px;
 }
+
+/* Card badges are absolutely positioned on images; in the hero they sit inline */
+.tour-hero__badges .tour-card__badge { position: static; }
 
 .tour-hero__title {
   font-family: var(--font-serif);
@@ -1696,6 +1726,9 @@ textarea { resize: vertical; }
 
   .tours__grid { grid-template-columns: 1fr; }
   .tour-card--wide { max-width: 100%; }
+  .tour-card--featured { grid-template-columns: 1fr; }
+  .tour-card--featured .tour-card__img-wrap { height: 220px; min-height: 0; }
+  .tour-card--featured .tour-card__body { padding: 20px 22px 22px; }
 
   .gallery { height: 180px; }
 

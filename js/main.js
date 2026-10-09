@@ -36,20 +36,27 @@
   document.getElementById('cookieDecline').addEventListener('click', () => dismiss('declined'));
 })();
 
-/* ── Northern lights indicator (15 Oct – 31 Mar) ─────────────── */
+/* ── Northern lights indicator (pre-season Sep, season Oct – Mar) ── */
 (function initAuroraIndicator() {
   const osloDate = d => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Oslo' }).format(d); // YYYY-MM-DD
   const today = osloDate(new Date());
-  const [, month, day] = today.split('-').map(Number);
-  const inSeason = (month === 10 && day >= 15) || month >= 11 || month <= 3;
-  if (!inSeason || location.pathname.includes('thank-you')) return;
+  const month = Number(today.split('-')[1]);
+  const inSeason  = month >= 10 || month <= 3;
+  const preSeason = month === 9; // forecast shown, cruises not running yet
+  if (!(inSeason || preSeason) || location.pathname.includes('thank-you')) return;
 
   const LEVEL = { good: 'Good chance', fair: 'Fair chance', low: 'Low chance' };
   const RANK  = { low: 0, fair: 1, good: 2 };
   const onTourPage = location.pathname.startsWith('/northern-lights-cruise');
-  const cta = onTourPage
-    ? '<a href="/?tour=northern-lights#book">Book a night →</a>'
-    : '<a href="/northern-lights-cruise/">See the cruise →</a>';
+  const both = (long, short) =>
+    `<span class="aurora-ribbon__long">${long}</span><span class="aurora-ribbon__short">${short}</span>`;
+  const cta = preSeason
+    ? (onTourPage
+        ? `<a href="/?tour=northern-lights#book">${both('Book from 1 October', 'From 1 Oct')} →</a>`
+        : `<a href="/northern-lights-cruise/">${both('Cruises from 1 October', 'From 1 Oct')} →</a>`)
+    : (onTourPage
+        ? '<a href="/?tour=northern-lights#book">Book a night →</a>'
+        : '<a href="/northern-lights-cruise/">See the cruise →</a>');
   const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
   const tomorrow = osloDate(new Date(Date.now() + 864e5));
   const dayName = n =>
@@ -63,8 +70,10 @@
   ribbon.setAttribute('role', 'status');
   ribbon.innerHTML =
     '<span class="aurora-dot"></span><span class="aurora-ribbon__text">' +
-    '<span class="aurora-ribbon__long">Northern lights season — private aurora cruises from Finnsnes</span>' +
-    '<span class="aurora-ribbon__short">Northern lights season</span></span>' + cta;
+    (preSeason
+      ? both('Private northern lights cruises from Finnsnes', 'Northern lights cruises')
+      : both('Northern lights season — private aurora cruises from Finnsnes', 'Northern lights season')) +
+    '</span>' + cta;
   document.body.prepend(ribbon);
   document.documentElement.classList.add('has-aurora-ribbon');
 

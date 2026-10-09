@@ -2044,6 +2044,14 @@ textarea { resize: vertical; }
   color: var(--navy-deep);
   margin: 40px 0 16px;
 }
+.blog-post__body h3 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  margin: 24px 0 6px;
+}
+.blog-post__body h3 + p { margin-bottom: 12px; }
 .blog-post__cta {
   background: var(--bg);
   border-radius: var(--radius);

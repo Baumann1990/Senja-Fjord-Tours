@@ -178,6 +178,121 @@ ul { list-style: none; }
   box-shadow: 0 1px 0 var(--border);
 }
 
+/* ── Northern lights ribbon (winter season, added by main.js) ─ */
+.aurora-ribbon {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 101;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+  background: var(--navy-deep);
+  color: rgba(255,255,255,.92);
+  font-size: .8125rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.aurora-ribbon__text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aurora-ribbon__short { display: none; }
+
+.aurora-ribbon strong { color: var(--white); font-weight: 600; }
+.aurora-ribbon .sep { opacity: .4; }
+.aurora-ribbon__detail { color: rgba(255,255,255,.6); }
+
+.aurora-ribbon a {
+  color: var(--amber);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+
+.aurora-ribbon a:hover { text-decoration: underline; text-underline-offset: 2px; }
+
+.aurora-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--teal);
+  box-shadow: 0 0 8px currentColor;
+}
+
+.aurora-dot--good { background: #3ddc97; color: #3ddc97; }
+.aurora-dot--fair { background: var(--amber); color: var(--amber); }
+.aurora-dot--low  { background: #8a99a8; color: transparent; }
+
+html.has-aurora-ribbon { scroll-padding-top: 40px; }
+html.has-aurora-ribbon .nav { top: 40px; }
+html.has-aurora-ribbon .blog-index-hero { padding-top: 160px; }
+
+@media (max-width: 768px) {
+  .aurora-ribbon { font-size: .75rem; gap: 6px; }
+  .aurora-ribbon__detail,
+  .aurora-ribbon__later,
+  .aurora-ribbon__long { display: none; }
+  .aurora-ribbon__short { display: inline; }
+  html.has-aurora-ribbon .nav:not(.scrolled) .nav__menu { top: calc(var(--nav-h) + 40px); }
+}
+
+/* Small forecast chip on the northern lights tour card */
+.aurora-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 3px 10px 3px 8px;
+  border-radius: 100px;
+}
+
+.aurora-chip[hidden] { display: none; }
+
+/* 3-night outlook on the northern lights page (scoped to beat .tour-page__body ul) */
+.tour-page__body .aurora-outlook {
+  margin: 16px 0 10px;
+  gap: 8px;
+}
+
+.tour-page__body .aurora-outlook[hidden] { display: none; }
+
+.tour-page__body .aurora-outlook li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  white-space: nowrap;
+  padding: 10px 14px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: .9rem;
+  color: var(--text);
+}
+
+.tour-page__body .aurora-outlook li::before { content: none; }
+
+.aurora-outlook__day { font-weight: 600; min-width: 80px; }
+.aurora-outlook__meta { margin-left: auto; color: var(--text-muted); font-size: .82rem; }
+
+.tour-page__note {
+  font-size: .82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
 .nav__brand {
   display: flex;
   align-items: center;

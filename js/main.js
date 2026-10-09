@@ -36,6 +36,83 @@
   document.getElementById('cookieDecline').addEventListener('click', () => dismiss('declined'));
 })();
 
+/* ── Northern lights indicator (15 Oct – 31 Mar) ─────────────── */
+(function initAuroraIndicator() {
+  const osloDate = d => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Oslo' }).format(d); // YYYY-MM-DD
+  const today = osloDate(new Date());
+  const [, month, day] = today.split('-').map(Number);
+  const inSeason = (month === 10 && day >= 15) || month >= 11 || month <= 3;
+  if (!inSeason || location.pathname.includes('thank-you')) return;
+
+  const LEVEL = { good: 'Good chance', fair: 'Fair chance', low: 'Low chance' };
+  const RANK  = { low: 0, fair: 1, good: 2 };
+  const onTourPage = location.pathname.startsWith('/northern-lights-cruise');
+  const cta = onTourPage
+    ? '<a href="/?tour=northern-lights#book">Book a night →</a>'
+    : '<a href="/northern-lights-cruise/">See the cruise →</a>';
+  const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+  const tomorrow = osloDate(new Date(Date.now() + 864e5));
+  const dayName = n =>
+    n.date === today ? 'tonight'
+    : n.date === tomorrow ? 'tomorrow'
+    : new Date(n.date + 'T12:00:00Z').toLocaleDateString('en-GB', { weekday: 'long', timeZone: 'UTC' });
+
+  // Shown straight away (season message) so the page doesn't jump when the forecast arrives
+  const ribbon = document.createElement('div');
+  ribbon.className = 'aurora-ribbon';
+  ribbon.setAttribute('role', 'status');
+  ribbon.innerHTML =
+    '<span class="aurora-dot"></span><span class="aurora-ribbon__text">' +
+    '<span class="aurora-ribbon__long">Northern lights season — private aurora cruises from Finnsnes</span>' +
+    '<span class="aurora-ribbon__short">Northern lights season</span></span>' + cta;
+  document.body.prepend(ribbon);
+  document.documentElement.classList.add('has-aurora-ribbon');
+
+  fetch('/data/aurora.json', { cache: 'no-cache' })
+    .then(r => (r.ok ? r.json() : Promise.reject()))
+    .then(render)
+    .catch(() => {});
+
+  function render(data) {
+    if (Date.now() - new Date(data.generated).getTime() > 12 * 3600e3) return; // stale: keep season message
+    const nights = (data.nights || []).filter(n => LEVEL[n.level] && new Date(n.end).getTime() > Date.now());
+    if (!nights.length) return;
+
+    const first = nights[0];
+    const detail = `Kp ${Number(first.kp)} · ${Number(first.cloud)}% cloud`;
+    // Best later night (earliest wins a tie) when tonight isn't already good
+    const better = first.level === 'good' ? null
+      : nights.slice(1).reduce((best, n) => (RANK[n.level] > RANK[(best || first).level] ? n : best), null);
+    const later = better
+      ? `<span class="aurora-ribbon__later"><span class="sep">·</span> ${cap(dayName(better))}: <strong>${LEVEL[better.level]}</strong></span>`
+      : '';
+
+    ribbon.innerHTML =
+      `<span class="aurora-dot aurora-dot--${first.level}"></span>` +
+      `<span class="aurora-ribbon__text"><span class="aurora-ribbon__long">Northern lights</span>` +
+      `<span class="aurora-ribbon__short">Aurora</span> ${dayName(first)}: <strong>${LEVEL[first.level]}</strong></span>` +
+      `<span class="aurora-ribbon__detail"><span class="sep">·</span> ${detail}</span>` +
+      later + cta;
+    ribbon.title = 'Estimate for Finnsnes, 20:30–23:30, from NOAA aurora and MET Norway cloud forecasts';
+
+    // Tour card shows tonight, or the better night if tonight looks low
+    const featured = first.level === 'low' && better ? better : first;
+    document.querySelectorAll('[data-aurora-chip]').forEach(chip => {
+      chip.innerHTML = `<span class="aurora-dot aurora-dot--${featured.level}"></span>${cap(dayName(featured))}: ${LEVEL[featured.level]}`;
+      chip.hidden = false;
+    });
+
+    document.querySelectorAll('[data-aurora-outlook]').forEach(list => {
+      list.innerHTML = nights.map(n =>
+        `<li><span class="aurora-dot aurora-dot--${n.level}"></span>` +
+        `<span class="aurora-outlook__day">${cap(dayName(n))}</span><span>${LEVEL[n.level]}</span>` +
+        `<span class="aurora-outlook__meta">Kp ${Number(n.kp)} · ${Number(n.cloud)}% cloud</span></li>`
+      ).join('');
+      list.hidden = false;
+    });
+  }
+})();
+
 /* ── Gallery rotation ────────────────────────────────────────── */
 const GALLERY_POOL = [
   { src: 'images/chris-stenger-fRtdVQWa0Dk-unsplash.webp',     alt: 'Red rorbu on a snowy Senja beach with turquoise fjord water' },

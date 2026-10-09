@@ -1,0 +1,55 @@
+# Publishes the site to GitHub Pages on every push, and every 3 hours with a
+# fresh northern lights forecast (data/aurora.json is generated here, never committed).
+# Requires: Settings → Pages → Build and deployment → Source: "GitHub Actions".
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "15 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble site
+        run: |
+          mkdir _site
+          rsync -a ./ _site/ --exclude '.git' --exclude '.github' --exclude '_site' --exclude 'scripts' --exclude '.claude'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # If the forecast services are down, the site still deploys; the ribbon
+      # then shows its generic season message instead of a forecast.
+      - name: Fetch northern lights forecast
+        continue-on-error: true
+        run: |
+          mkdir -p _site/data
+          python scripts/aurora_forecast.py _site/data/aurora.json
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

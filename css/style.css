@@ -561,6 +561,9 @@ svg.icon {
   line-height: 1.55;
 }
 
+.about__list a { color: var(--blue-mid); text-decoration: underline; text-underline-offset: 2px; }
+.about__list a:hover { color: var(--amber-dark); }
+
 .about__list li::before {
   content: '';
   flex-shrink: 0;
@@ -1274,6 +1277,9 @@ textarea { resize: vertical; }
   text-align: center;
   font-size: .8rem;
 }
+
+.footer__fritorg { margin-top: 6px; }
+.footer__fritorg a { color: var(--amber); text-decoration: underline; text-underline-offset: 2px; }
 
 /* ── Tour sub-pages ──────────────────────────────────────────── */
 .tour-hero {

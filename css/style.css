@@ -2058,6 +2058,17 @@ textarea { resize: vertical; }
   margin: 24px 0 6px;
 }
 .blog-post__body h3 + p { margin-bottom: 12px; }
+.blog-post__body ul {
+  list-style: disc;
+  padding-left: 22px;
+  margin: 0 0 24px;
+}
+.blog-post__body li {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 8px;
+}
 .blog-post__cta {
   background: var(--bg);
   border-radius: var(--radius);
